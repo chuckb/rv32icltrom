@@ -20,7 +20,7 @@ if __name__ == '__main__':
 
   # Process logic table rows
   for row in csv_reader:
-    words[int(row["ihex"], 16)] = int(row["ohex"], 16)
+    words[int(row["ibin"], 2)] = int(row["obin"], 2)
 
   # Need to write words in 16 byte rows, hex formatted
   print("v3.0 hex words plain")
@@ -28,7 +28,7 @@ if __name__ == '__main__':
     line = ""
     # Iterate over each word
     for y in range(16):
-      line += f"{words[(x*16) + y]:0>3x} "
+      line += f"{words[(x*16) + y]:0>4x} "
     # Chop off the last space
     line = line[:-1]
     print(line)
